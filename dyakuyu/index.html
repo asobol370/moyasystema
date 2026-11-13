@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Дякуємо за покупку — Моя система</title>
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#faf6ee">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23faf6ee'/%3E%3Ctext x='32' y='44' font-size='36' text-anchor='middle' fill='%23c2476b'%3E%E2%9C%BB%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Caveat:wght@600&display=swap">
+<style>
+:root{--bg:#faf6ee;--card:#fff;--ink:#352429;--muted:#75616a;--line:rgba(53,36,41,.1);
+  --accent:#c2476b;--accent-deep:#a93a5c;--ice:#e3f0ec;--ice-ink:#2f6b5d;--pen:#3d5aa9}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Manrope",-apple-system,"Segoe UI",sans-serif;
+  font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+.wrap{max-width:560px;margin:0 auto;padding-block:clamp(28px,7vh,64px) 40px;
+  padding-left:max(18px,env(safe-area-inset-left,0px));padding-right:max(18px,env(safe-area-inset-right,0px))}
+.brand{font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);text-decoration:none}
+.card{margin-top:16px;background:var(--card);border:1px solid var(--line);border-radius:22px;
+  padding:clamp(24px,6vw,36px);box-shadow:0 18px 44px rgba(53,36,41,.07)}
+.sticker{display:inline-block;font-family:"Caveat",cursive;font-weight:600;font-size:1.3rem;color:var(--pen);
+  background:#fff;border:1px solid var(--line);border-radius:8px;padding:3px 13px 1px;transform:rotate(-2deg);
+  box-shadow:0 4px 10px rgba(53,36,41,.08)}
+h1{margin:14px 0 10px;font-size:clamp(1.55rem,1.2rem + 2vw,2rem);line-height:1.2;font-weight:600;text-wrap:balance}
+.lead{margin:0 0 22px;color:var(--muted)}
+ol{list-style:none;margin:0;padding:0;display:grid;gap:14px;counter-reset:s}
+ol li{display:grid;grid-template-columns:30px minmax(0,1fr);gap:12px;align-items:start;counter-increment:s}
+ol li::before{content:counter(s);display:grid;place-items:center;width:30px;height:30px;border-radius:50%;
+  background:var(--ice);color:var(--ice-ink);font-weight:700;font-size:.9rem}
+ol b{display:block;font-weight:700}
+ol span{color:var(--muted);font-size:.95rem}
+.help{margin-top:24px;padding:16px 18px;border-radius:14px;background:var(--ice);font-size:.95rem}
+.help a{color:var(--ice-ink);font-weight:700;text-decoration:none;border-bottom:1px solid rgba(47,107,93,.35);overflow-wrap:anywhere}
+.btn{display:flex;align-items:center;justify-content:center;min-height:52px;margin-top:22px;border-radius:14px;
+  border:1.5px solid var(--line);color:var(--ink);font-weight:600;text-decoration:none;transition:border-color .18s ease}
+.btn:hover{border-color:var(--accent)}
+a:focus-visible{outline:3px solid #8a4ddb;outline-offset:3px;border-radius:6px}
+.foot{margin-top:18px;font-size:.82rem;color:var(--muted);text-align:center}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <a class="brand" href="/">Моя система</a>
+  <div class="card">
+    <span class="sticker">оплата пройшла ✓</span>
+    <h1>Дякуємо! Гайд уже летить на вашу пошту</h1>
+    <p class="lead">Лист із посиланням на PDF «Заготовки для життя» надійде на email, який ви вказали під час оплати.</p>
+    <ol>
+      <li><div><b>Відкрийте пошту</b><span>Лист від «Моя система» (info@moyasystema.pp.ua) зазвичай приходить за 1–2 хвилини.</span></div></li>
+      <li><div><b>Не бачите листа?</b><span>Загляньте в «Спам» і «Промоакції» — іноді він потрапляє туди.</span></div></li>
+      <li><div><b>Збережіть PDF собі</b><span>І почніть зі сторінки 3 «Як працює система».</span></div></li>
+    </ol>
+    <div class="help">Минуло 10 хвилин, а листа немає? Напишіть нам у Telegram
+      <a href="https://t.me/moyasystema" target="_blank" rel="noopener">@moyasystema</a> або на
+      <a href="mailto:info@moyasystema.pp.ua">info@moyasystema.pp.ua</a> — надішлемо гайд вручну.</div>
+    <a class="btn" href="/">Повернутися на сайт</a>
+  </div>
+  <p class="foot">© 2026 · Моя система</p>
+</main>
+</body>
+</html>
