@@ -436,6 +436,7 @@ h3{font-size:var(--fs-h3);line-height:1.3;letter-spacing:-.02em}
 .dish-name{font-weight:600;font-size:.96rem}
 .dish-time{font-size:.8rem;color:var(--ice-ink);background:var(--ice);border-radius:999px;padding:3px 10px;white-space:nowrap;font-variant-numeric:tabular-nums}
 .dish-more{padding-top:12px;font-size:var(--fs-small);color:var(--accent);font-weight:700}
+.more-mob{display:none}
 .prep-chip.enter,.dish-row.enter{opacity:0;transform:translateY(12px)}
 .buys-hint{margin-top:20px;font-size:var(--fs-small);color:var(--muted-2)}
 
@@ -604,6 +605,34 @@ footer{background:var(--plum-2);color:rgba(246,238,226,.6);padding-block:30px ca
   .t-cell b{font-size:1.28rem}
   .btn-cta{margin-top:12px;min-height:52px;font-size:.86rem}
   .hero .fine{margin-top:10px}
+  /* 5 закупок: уся картка — в один екран телефона; фото стає шапкою з назвою */
+  .buys{margin-top:24px}
+  .buys-tabs{padding:8px 12px;gap:6px}
+  .buys-tab{min-height:38px;padding:7px 14px;font-size:.85rem}
+  .buys-body{display:grid;grid-template-columns:minmax(0,1fr);padding:0 16px 16px}
+  .buys-cols,.buys-cols > div{display:contents}
+  .buys-photo{grid-row:1;grid-column:1;margin:0 -16px}
+  .buys-photo img{aspect-ratio:2.5/1;border-radius:0}
+  .buys-photo::after{content:"";position:absolute;inset:0;pointer-events:none;
+    background:linear-gradient(to top, rgba(45,26,37,.82) 0%, rgba(45,26,37,.35) 48%, rgba(45,26,37,0) 78%)}
+  .buys-photo figcaption{display:none}
+  .buys-head{grid-row:1;grid-column:1;align-self:end;position:relative;z-index:1;padding-bottom:11px;pointer-events:none}
+  .buys-title{font-size:1.12rem;line-height:1.2;color:#fff;margin-bottom:2px;text-shadow:0 1px 8px rgba(0,0,0,.35)}
+  .buys-sub{font-size:.76rem;line-height:1.3;color:rgba(255,255,255,.86);margin-bottom:0}
+  .buys-cols > div:first-child .buys-col-label{grid-row:2;margin:13px 0 8px}
+  .prep-chips{grid-row:3;gap:6px}
+  .buys-cols > div:last-child .buys-col-label{grid-row:4;margin:16px 0 2px}
+  #dishList{grid-row:5}
+  .buys-col-label{font-size:.66rem}
+  .prep-chip{font-size:1rem;padding:3px 8px 2px;border-radius:6px;box-shadow:0 2px 6px rgba(53,36,41,.08)}
+  .dish-row{gap:10px;padding-block:6px}
+  .dish-row:nth-child(n+5){display:none}
+  .dish-name{font-size:.88rem;line-height:1.3}
+  .dish-time{font-size:.72rem;padding:2px 8px}
+  .dish-more{padding-top:8px;font-size:.8rem;line-height:1.35}
+  .more-desk{display:none}
+  .more-mob{display:inline}
+  .buys-hint{display:none}
   footer .footer-in{text-align:center;justify-items:center}
   footer .footer-links{justify-content:center}
   .footer-contacts{justify-content:center;column-gap:16px}
@@ -827,8 +856,10 @@ footer{background:var(--plum-2);color:rgba(246,238,226,.6);padding-block:30px ca
         <button class="buys-tab" role="tab" aria-selected="false" data-buy="b5">5 · Тісто</button>
       </div>
       <div class="buys-body">
-        <p class="buys-title" id="buysTitle"></p>
-        <p class="buys-sub" id="buysSub"></p>
+        <div class="buys-head">
+          <p class="buys-title" id="buysTitle"></p>
+          <p class="buys-sub" id="buysSub"></p>
+        </div>
         <div class="buys-cols">
           <div>
             <p class="buys-col-label">У морозилку</p>
@@ -1026,7 +1057,7 @@ footer{background:var(--plum-2);color:rgba(246,238,226,.6);padding-block:30px ca
     b1: {
       title: "Закупка 1 · Курка",
       sub: "Один похід у магазин → 6 заготовок → 8 страв у гайді",
-      img: "img/g_kurka.jpg", cap: "тефтелі з однієї партії",
+      total: 8, img: "img/g_kurka.jpg", cap: "тефтелі з однієї партії",
       preps: ["Тефтелі з рисом", "Котлети з кабачком", "Філе у двох маринадах", "Стегна медово-гірчичні", "Нагетси", "Бульйон порціями"],
       dishes: [["Тефтелі в томатному соусі","35 хв"],["Суп з тефтелями","30 хв"],["Запечене філе з овочами","40 хв"],["Стегна з картоплею в рукаві","1 год"],["Нагетси з духовки й соус","25 хв"],["Паста з куркою й шпинатом","25 хв"]],
       more: "+ ще 2 страви у гайді"
@@ -1034,7 +1065,7 @@ footer{background:var(--plum-2);color:rgba(246,238,226,.6);padding-block:30px ca
     b2: {
       title: "Закупка 2 · Фарш",
       sub: "Один похід у магазин → 6 заготовок → 8 страв у гайді",
-      img: "img/g_farsh.jpg", cap: "болоньєзе вже готовий у морозилці",
+      total: 8, img: "img/g_farsh.jpg", cap: "болоньєзе вже готовий у морозилці",
       preps: ["Фарш з цибулею", "Фрикадельки", "Котлети домашні", "Ліниві голубці", "Соус болоньєзе", "Чебуреки"],
       dishes: [["Макарони по-флотськи","25 хв"],["Лазанья","1 год"],["Ліниві голубці в сметанному соусі","45 хв"],["Фрикадельки у вершковому соусі","25 хв"],["Суп з фрикадельками й вермішеллю","30 хв"],["Чебуреки","20 хв"]],
       more: "+ ще 2 страви у гайді"
@@ -1042,7 +1073,7 @@ footer{background:var(--plum-2);color:rgba(246,238,226,.6);padding-block:30px ca
     b3: {
       title: "Закупка 3 · Риба",
       sub: "Один похід у магазин → 5 заготовок → 7 страв у гайді",
-      img: "img/g_ryba.jpg", cap: "філе «лимон-кріп» уже в маринаді",
+      total: 7, img: "img/g_ryba.jpg", cap: "філе «лимон-кріп» уже в маринаді",
       preps: ["Рибні котлети", "Філе «лимон-кріп»", "Рибні фрикадельки", "Стейки лосося", "Набір для юшки"],
       dishes: [["Рибні котлети з рисом","30 хв"],["Філе під овочами","35 хв"],["Риба у фользі з картоплею","40 хв"],["Юшка","25 хв"],["Стейки на сковороді","15 хв"],["Рибні бургери","25 хв"]],
       more: "+ ще 1 страва у гайді"
@@ -1050,7 +1081,7 @@ footer{background:var(--plum-2);color:rgba(246,238,226,.6);padding-block:30px ca
     b4: {
       title: "Закупка 4 · Овочі й супові набори",
       sub: "Один похід у магазин → 7 заготовок → 7 страв у гайді",
-      img: "img/g_ovochi.jpg", cap: "рагу й супові набори порціями",
+      total: 7, img: "img/g_ovochi.jpg", cap: "рагу й супові набори порціями",
       preps: ["Зажарка морква-цибуля", "Набір для борщу", "Набір для овочевого супу", "Овочеве рагу", "Фаршировані перці", "Смажені гриби", "Гарбузове пюре"],
       dishes: [["Борщ за 20 хвилин","30 хв"],["Овочевий суп","25 хв"],["Рагу з мʼясом","25 хв"],["Фаршировані перці в соусі","1 год"],["Грибна юшка","30 хв"],["Гарбузовий крем-суп","20 хв"]],
       more: "+ ще 1 страва у гайді"
@@ -1058,7 +1089,7 @@ footer{background:var(--plum-2);color:rgba(246,238,226,.6);padding-block:30px ca
     b5: {
       title: "Закупка 5 · Тісто й сніданки",
       sub: "Один похід у магазин → 7 заготовок → 7 страв у гайді",
-      img: "img/g_tisto.jpg", cap: "сирники просто з морозилки",
+      total: 7, img: "img/g_tisto.jpg", cap: "сирники просто з морозилки",
       preps: ["Сирники", "Тонкі млинці", "Налисники з мʼясом", "Налисники з сиром", "Вареники з картоплею", "Вареники з вишнею", "Пельмені"],
       dishes: [["Сирники зі сметаною","20 хв"],["Налисники з мʼясом у духовці","35 хв"],["Вареники з картоплею й засмажкою","20 хв"],["Вареники з вишнею","15 хв"],["Пельмені в бульйоні","20 хв"],["Млинці з начинкою","10 хв"]],
       more: "+ ще 1 страва у гайді"
@@ -1069,6 +1100,13 @@ footer{background:var(--plum-2);color:rgba(246,238,226,.6);padding-block:30px ca
       buysTitle = $("#buysTitle"), buysSub = $("#buysSub"),
       buysImg = $("#buysImg"), buysCap = $("#buysCap");
   var switching = false;
+
+  function dishWord(n) {
+    var a = n % 10, h = n % 100;
+    if (a === 1 && h !== 11) return "страва";
+    if (a >= 2 && a <= 4 && (h < 12 || h > 14)) return "страви";
+    return "страв";
+  }
 
   function renderBuy(key, animate) {
     var b = BUYS[key];
@@ -1094,12 +1132,12 @@ footer{background:var(--plum-2);color:rgba(246,238,226,.6);padding-block:30px ca
       if (animate) row.style.transitionDelay = (120 + i * 55) + "ms";
       dishList.appendChild(row);
     });
-    if (b.more) {
-      var mo = document.createElement("p");
-      mo.className = "dish-more";
-      mo.textContent = b.more;
-      dishList.appendChild(mo);
-    }
+    var mo = document.createElement("p"), rest = b.total - Math.min(4, b.dishes.length);
+    mo.className = "dish-more";
+    mo.innerHTML = '<span class="more-desk"></span><span class="more-mob"></span>';
+    mo.firstChild.textContent = b.more || "";
+    mo.lastChild.textContent = "+ ще " + rest + " " + dishWord(rest) + " у гайді — з грамівками й фото";
+    dishList.appendChild(mo);
     if (animate) {
       requestAnimationFrame(function(){ requestAnimationFrame(function(){
         $$(".prep-chip.enter, .dish-row.enter").forEach(function(el){ el.classList.remove("enter"); });
@@ -1116,6 +1154,11 @@ footer{background:var(--plum-2);color:rgba(246,238,226,.6);padding-block:30px ca
     tab.addEventListener("click", function(){
       if (tab.getAttribute("aria-selected") === "true" || switching) return;
       $$(".buys-tab").forEach(function(t){ t.setAttribute("aria-selected", t === tab ? "true" : "false"); });
+      var bar = tab.parentElement;
+      if (bar.scrollWidth > bar.clientWidth) {
+        var dx = tab.getBoundingClientRect().left - bar.getBoundingClientRect().left - (bar.clientWidth - tab.offsetWidth) / 2;
+        bar.scrollBy({left: dx, behavior: reduced ? "auto" : "smooth"});
+      }
       if (reduced) { renderBuy(tab.dataset.buy, false); return; }
       switching = true;
       var body = $(".buys-body");
