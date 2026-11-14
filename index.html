@@ -31,7 +31,7 @@
      МІСЦЯ ДЛЯ ЗАМІНИ ПЕРЕД ПУБЛІКАЦІЄЮ:
      1. Посилання оплати (пошук: WAYFORPAY).
      2. Ціни: 399 грн зі знижкою, стара 799 (пошук: 399 і 799).
-        Таймер знижки: 9 хв від завантаження (пошук: TIMER_MIN) —
+        Таймер знижки: 15 хв від завантаження (пошук: TIMER_MIN) —
         демо-логіка, на проді вирішити: привʼязка до візиту/кампанії.
      3. Превʼю сторінок — замінити на скріни реального PDF
         (пошук: PREVIEW). Часи страв у демо — приклад (пошук: ДЕМО).
@@ -719,7 +719,7 @@ footer{background:var(--plum-2);color:rgba(246,238,226,.6);padding-block:30px ca
           <div class="pb-foot">
             <p class="sale-note">Знижка 50%<br>доступна ще</p>
             <div class="timer" aria-live="off">
-              <span class="t-cell"><b data-tmin>09</b><small>хв</small></span>
+              <span class="t-cell"><b data-tmin>15</b><small>хв</small></span>
               <span class="t-cell"><b data-tsec>00</b><small>сек</small></span>
               <span class="t-cell"><b data-tms>00</b><small>мл.сек</small></span>
             </div>
@@ -984,7 +984,7 @@ footer{background:var(--plum-2);color:rgba(246,238,226,.6);padding-block:30px ca
       <span class="chip">PDF · одразу на пошту</span>
     </div>
     <div class="timer" aria-live="off">
-      <span class="t-cell"><b data-tmin>09</b><small>хвилин</small></span>
+      <span class="t-cell"><b data-tmin>15</b><small>хвилин</small></span>
       <span class="t-sep">:</span>
       <span class="t-cell"><b data-tsec>00</b><small>секунд</small></span>
       <span class="t-note">ціна 399 грн діє обмежено,<br>далі — 799 грн</span>
@@ -1176,8 +1176,8 @@ footer{background:var(--plum-2);color:rgba(246,238,226,.6);padding-block:30px ca
   /* ---------- таймер знижки: TIMER_MIN хв від ПЕРШОГО візиту.
      Дедлайн зберігається в localStorage — перезавантаження сторінки
      НЕ скидає відлік; після 00:00 так і лишається нуль.
-     Для перегляду макета: подвійний клік по таймеру скидає його на 9:00. ---------- */
-  var TIMER_MIN = 9;
+     Для перегляду макета: подвійний клік по таймеру скидає його на 15:00. ---------- */
+  var TIMER_MIN = 15;
   var timerEls = $$("[data-timer]");
   if (timerEls.length || document.querySelector("[data-tmin]")) {
     var TKEY = "sale-deadline";
