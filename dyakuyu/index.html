@@ -58,7 +58,7 @@ fbq('track', 'PageView');
 /* PIXEL: Purchase — сюди WayForPay повертає після успішної оплати; 1 раз на вкладку, щоб оновлення сторінки не дублювало покупку */
 (function(){
   try{if(sessionStorage.getItem('fb-purchase-sent'))return;sessionStorage.setItem('fb-purchase-sent','1');}catch(e){}
-  fbq('track','Purchase',{value:399,currency:'UAH',content_name:'Заготовки для життя',content_type:'product'});
+  fbq('track','Purchase',{value:299,currency:'UAH',content_name:'Заготовки для життя',content_type:'product'});
 })();
 </script>
 <!-- Microsoft Clarity -->

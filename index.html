@@ -33,14 +33,14 @@ fbq('track', 'PageView');
 </script>
 <!-- End Meta Pixel Code -->
 <script>
-/* PIXEL: InitiateCheckout — клік по будь-якій кнопці оплати WayForPay; сума береться з тексту кнопки («399 грн») */
+/* PIXEL: InitiateCheckout — клік по будь-якій кнопці оплати WayForPay; сума береться з тексту кнопки («299 грн») */
 document.addEventListener('click',function(e){
   var a=e.target.closest&&e.target.closest('a[href*="wayforpay.com"]');
   if(!a)return;
   if(window.clarity)clarity('event','checkout_click'); /* CLARITY: клік по оплаті */
   if(!window.fbq)return;
   var m=(a.textContent||'').match(/(\d+)\s*грн/);
-  fbq('track','InitiateCheckout',{value:m?+m[1]:399,currency:'UAH',content_name:'Заготовки для життя',content_type:'product'});
+  fbq('track','InitiateCheckout',{value:m?+m[1]:299,currency:'UAH',content_name:'Заготовки для життя',content_type:'product'});
 });
 </script>
 <!-- Microsoft Clarity -->
@@ -65,7 +65,7 @@ src="https://www.facebook.com/tr?id=1581873103694773&ev=PageView&noscript=1"></n
 
      МІСЦЯ ДЛЯ ЗАМІНИ ПЕРЕД ПУБЛІКАЦІЄЮ:
      1. Посилання оплати (пошук: WAYFORPAY).
-     2. Ціни: 399 грн зі знижкою, стара 799 (пошук: 399 і 799).
+     2. Ціни: 299 грн зі знижкою, стара 799 (пошук: 299 і 799).
         Таймер знижки: 15 хв від завантаження (пошук: TIMER_MIN) —
         демо-логіка, на проді вирішити: привʼязка до візиту/кампанії.
      3. Превʼю сторінок — замінити на скріни реального PDF
@@ -751,10 +751,10 @@ footer{background:var(--plum-2);color:rgba(246,238,226,.6);padding-block:30px ca
 
         <div class="price-block" data-rise="5">
           <s class="pb-old">799 грн</s>
-          <span class="sale-badge">−50%</span>
-          <span class="pb-price">399 грн</span>
+          <span class="sale-badge">−63%</span>
+          <span class="pb-price">299 грн</span>
           <div class="pb-foot">
-            <p class="sale-note">Знижка 50%<br>доступна ще</p>
+            <p class="sale-note">Знижка 63%<br>доступна ще</p>
             <div class="timer" aria-live="off">
               <span class="t-cell"><b data-tmin>15</b><small>хв</small></span>
               <span class="t-cell"><b data-tsec>00</b><small>сек</small></span>
@@ -764,7 +764,7 @@ footer{background:var(--plum-2);color:rgba(246,238,226,.6);padding-block:30px ca
         </div>
 
         <!-- WAYFORPAY: посилання на оплату -->
-        <a class="btn-cta" href="https://secure.wayforpay.com/button/b38c26f5f1065" id="buy" data-rise="5">Забрати гайд за 399 грн</a>
+        <a class="btn-cta" href="https://secure.wayforpay.com/button/b38c26f5f1065" id="buy" data-rise="5">Забрати гайд за 299 грн</a>
 
         <p class="fine fine-center" data-rise="5">Файл на пошту одразу після оплати<br>Гарантія
           повернення 24 години<br><a class="link-inside" href="#inside">Що всередині ↓</a></p>
@@ -1017,18 +1017,18 @@ footer{background:var(--plum-2);color:rgba(246,238,226,.6);padding-block:30px ca
     </ul>
     <div class="price-row">
       <span class="old-price">799 грн</span>
-      <span class="price">399 <small>грн</small></span>
+      <span class="price">299 <small>грн</small></span>
       <span class="chip">PDF · одразу на пошту</span>
     </div>
     <div class="timer" aria-live="off">
       <span class="t-cell"><b data-tmin>15</b><small>хвилин</small></span>
       <span class="t-sep">:</span>
       <span class="t-cell"><b data-tsec>00</b><small>секунд</small></span>
-      <span class="t-note">ціна 399 грн діє обмежено,<br>далі — 799 грн</span>
+      <span class="t-note">ціна 299 грн діє обмежено,<br>далі — 799 грн</span>
     </div>
     <div class="btn-row">
       <!-- WAYFORPAY -->
-      <a class="btn btn-main" href="https://secure.wayforpay.com/button/b38c26f5f1065">Купити гайд за 399 грн</a>
+      <a class="btn btn-main" href="https://secure.wayforpay.com/button/b38c26f5f1065">Купити гайд за 299 грн</a>
     </div>
     <p class="fine">Файл на пошту одразу після оплати · Гарантія повернення 24 години</p>
     <!-- ROI тут не дублюємо: у hero він живе у відгуку Інни -->
@@ -1058,7 +1058,7 @@ footer{background:var(--plum-2);color:rgba(246,238,226,.6);padding-block:30px ca
 <!-- плавуча кнопка (як у референсі) -->
 <div class="sticky-bar" id="stickyBar" aria-hidden="true">
   <!-- WAYFORPAY -->
-  <a class="btn-cta sticky-cta" href="https://secure.wayforpay.com/button/b38c26f5f1065">Забрати гайд за 399 грн<span class="cta-badge">−50%</span></a>
+  <a class="btn-cta sticky-cta" href="https://secure.wayforpay.com/button/b38c26f5f1065">Забрати гайд за 299 грн<span class="cta-badge">−63%</span></a>
 </div>
 
 <!-- лайтбокс превʼю -->
