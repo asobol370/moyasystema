@@ -63,14 +63,14 @@ src="https://www.facebook.com/tr?id=1581873103694773&ev=PageView&noscript=1"></n
      Світлий, жіночий, evergreen. Без особистого бренду.
      Структура: hero → переваги → правила → зміст+превʼю →
      5 закупок (інтерактив) → як це виглядає → відгуки (каркас) →
-     FAQ → фінал CTA (оффер «Що ви отримуєте» + ціна + таймер + ROI)
+     FAQ → фінал CTA (оффер «Що ви отримуєте» + ціна + ROI)
      → футер + sticky-кнопка на мобільному.
 
      МІСЦЯ ДЛЯ ЗАМІНИ ПЕРЕД ПУБЛІКАЦІЄЮ:
      1. Посилання оплати (пошук: WAYFORPAY).
      2. Ціни: 299 грн зі знижкою, стара 799 (пошук: 299 і 799).
-        Таймер знижки: 15 хв від завантаження (пошук: TIMER_MIN) —
-        демо-логіка, на проді вирішити: привʼязка до візиту/кампанії.
+        Таймер знижки прибрано 18.11.2026 (рішення Влада); JS-код
+        таймера лишився, але без елементів [data-tmin] нічого не робить.
      3. Превʼю сторінок — замінити на скріни реального PDF
         (пошук: PREVIEW). Часи страв у демо — приклад (пошук: ДЕМО).
      4. Назва гайда, якщо зміниться (пошук: Заготовки для життя).
@@ -783,7 +783,7 @@ footer{background:var(--plum-2);color:rgba(246,238,226,.6);padding-block:30px ca
         </ul>
 
         <div class="rq" data-rise="3">
-          <p class="rq-text">Одна вечеря в кафе чи доставка обходиться мені від 1000 грн.
+          <p class="rq-text">Одна доставка на сімʼю обходиться від 100&nbsp;zł.
             Гайд окупився з першого ж тижня</p>
           <div class="rq-person">
             <span class="rq-ava"><img src="../img/inna.jpg" alt="" width="240" height="360"></span>
@@ -801,14 +801,6 @@ footer{background:var(--plum-2);color:rgba(246,238,226,.6);padding-block:30px ca
           <s class="pb-old">799 грн</s>
           <span class="sale-badge">−63%</span>
           <span class="pb-price">299 грн</span>
-          <div class="pb-foot">
-            <p class="sale-note">Знижка 63%<br>доступна ще</p>
-            <div class="timer" aria-live="off">
-              <span class="t-cell"><b data-tmin>15</b><small>хв</small></span>
-              <span class="t-cell"><b data-tsec>00</b><small>сек</small></span>
-              <span class="t-cell"><b data-tms>00</b><small>мл.сек</small></span>
-            </div>
-          </div>
         </div>
 
         <!-- WAYFORPAY-PL: окрема кнопка оплати ще не створена -->
@@ -1117,12 +1109,6 @@ footer{background:var(--plum-2);color:rgba(246,238,226,.6);padding-block:30px ca
       <span class="old-price">799 грн</span>
       <span class="price">299 <small>грн</small></span>
       <span class="chip">PDF · одразу на пошту</span>
-    </div>
-    <div class="timer" aria-live="off">
-      <span class="t-cell"><b data-tmin>15</b><small>хвилин</small></span>
-      <span class="t-sep">:</span>
-      <span class="t-cell"><b data-tsec>00</b><small>секунд</small></span>
-      <span class="t-note">ціна 299 грн діє обмежено,<br>далі — 799 грн</span>
     </div>
     <div class="btn-row">
       <!-- WAYFORPAY-PL: окрема кнопка оплати ще не створена -->
