@@ -26,6 +26,14 @@ fbq('track', 'PageView');
 <noscript><img height="1" width="1" style="display:none" alt=""
 src="https://www.facebook.com/tr?id=1581873103694773&ev=PageView&noscript=1"></noscript>
 <!-- End Meta Pixel Code -->
+<!-- Microsoft Clarity -->
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "zekyoax9zw");
+</script>
 <title>Листи від Сніжка</title>
 <meta name="description" content="Адвент-календар для дітей 1–6 років: 24 листи від ельфа Сніжка, три набори під вік — 1–2, 3–4 і 5–6 років. Кожен набір — два PDF: гайд для батьків і файл для друку.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1299,8 +1307,10 @@ ageHooks.push(()=>{const t=document.getElementById('gtrack'); if(t) t.scrollLeft
 
 /* ---------- payment: WayForPay button + Meta InitiateCheckout ---------- */
 document.querySelectorAll('[data-pay]').forEach(a=>a.addEventListener('click',()=>{
-  if(!window.fbq) return;
-  fbq('track','InitiateCheckout',{value:+a.dataset.value||299,currency:'UAH',content_name:a.dataset.name||'Листи від Сніжка',content_type:'product'});
+  const v=+a.dataset.value||299, n=a.dataset.name||'Листи від Сніжка';
+  try{localStorage.setItem('snizhko-checkout',JSON.stringify({value:v,name:n,ts:Date.now()}))}catch(e){}  /* для Purchase на /dyakuyu/ */
+  if(window.clarity) clarity('event','checkout_click');
+  if(window.fbq) fbq('track','InitiateCheckout',{value:v,currency:'UAH',content_name:n,content_type:'product'});
 }));
 </script>
 </body>

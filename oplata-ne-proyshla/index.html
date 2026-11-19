@@ -3,35 +3,40 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Оплата не пройшла — Моя система</title>
+<title>Оплата не пройшла — Пошта Сніжка</title>
 <meta name="robots" content="noindex,nofollow">
-<meta name="theme-color" content="#faf6ee">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23faf6ee'/%3E%3Ctext x='32' y='44' font-size='36' text-anchor='middle' fill='%23c2476b'%3E%E2%9C%BB%3C/text%3E%3C/svg%3E">
+<meta name="theme-color" content="#173f2f">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23173f2f'/%3E%3Cpath d='M32 10l6.6 13.7 15 2.1-10.9 10.5 2.6 14.9L32 44l-13.3 7.2 2.6-14.9-10.9-10.5 15-2.1z' fill='%23d9a441'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&family=Rubik+Bubbles&display=swap">
 <style>
-:root{--bg:#faf6ee;--card:#fff;--ink:#352429;--muted:#75616a;--line:rgba(53,36,41,.1);
-  --accent:#c2476b;--accent-deep:#a93a5c;--ice:#e3f0ec;--ice-ink:#2f6b5d}
+:root{--pine:#173f2f;--pine-2:#1f5c40;--cream:#fff8ea;--gold:#d9a441;--gold-d:#a9741a;--red:#c8372d;--ink:#2b2a28;--muted:#6a645c;--line:#e8e0d2;--mint:#e9f4e4}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:"Manrope",-apple-system,"Segoe UI",sans-serif;
-  font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
-.wrap{max-width:560px;margin:0 auto;padding-block:clamp(28px,7vh,64px) 40px;
-  padding-left:max(18px,env(safe-area-inset-left,0px));padding-right:max(18px,env(safe-area-inset-right,0px))}
-.brand{font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);text-decoration:none}
-.card{margin-top:16px;background:var(--card);border:1px solid var(--line);border-radius:22px;
-  padding:clamp(24px,6vw,36px);box-shadow:0 18px 44px rgba(53,36,41,.07)}
-h1{margin:0 0 10px;font-size:clamp(1.55rem,1.2rem + 2vw,2rem);line-height:1.2;font-weight:600;text-wrap:balance}
-p{margin:0 0 14px;color:var(--muted)}
-ul{margin:0 0 4px;padding-left:1.15em;color:var(--muted);font-size:.95rem}
-li{margin-bottom:6px}
-.btn{display:flex;align-items:center;justify-content:center;min-height:54px;margin-top:22px;border-radius:14px;
-  background:var(--accent);color:#fff;font-weight:700;letter-spacing:.02em;text-decoration:none;transition:background .18s ease}
-.btn:hover{background:var(--accent-deep)}
-.help{margin-top:18px;padding:16px 18px;border-radius:14px;background:var(--ice);font-size:.95rem;color:var(--ink)}
-.help a{color:var(--ice-ink);font-weight:700;text-decoration:none;border-bottom:1px solid rgba(47,107,93,.35);overflow-wrap:anywhere}
-a:focus-visible{outline:3px solid #8a4ddb;outline-offset:3px;border-radius:6px}
-.foot{margin-top:18px;font-size:.82rem;color:var(--muted);text-align:center}
+body{margin:0;min-height:100vh;background:var(--pine);color:var(--ink);font:400 16.5px/1.55 "Nunito",-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased;position:relative}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.45;background-image:radial-gradient(circle,rgba(255,255,255,.9) 1.4px,transparent 1.8px),radial-gradient(circle,rgba(255,255,255,.55) 1px,transparent 1.4px);background-size:120px 120px,70px 70px;background-position:0 0,35px 20px}
+.wrap{position:relative;max-width:580px;margin:0 auto;padding-block:clamp(26px,6vh,56px) 40px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.brand{display:inline-flex;align-items:center;gap:10px;color:var(--cream);text-decoration:none;font-weight:900;font-size:17px}
+.brand i{width:36px;height:36px;border-radius:8px;border:2px dashed rgba(255,248,234,.55);display:grid;place-items:center;font-style:normal;color:var(--gold);font-size:18px}
+.card{position:relative;margin-top:18px;background:var(--cream);border-radius:24px;padding:clamp(24px,6vw,34px) clamp(20px,5vw,32px) clamp(24px,5vw,30px);box-shadow:0 30px 60px -28px rgba(0,0,0,.6)}
+.card::before{content:"";position:absolute;inset:0;border-radius:24px;padding:7px;pointer-events:none;background:repeating-linear-gradient(-45deg,var(--red) 0 10px,#fff 10px 20px);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude}
+.elf{position:absolute;right:14px;top:-58px;width:96px;height:auto;filter:drop-shadow(0 12px 16px rgba(0,0,0,.35))}
+.tag{display:inline-block;font:900 12.5px/1 "Nunito",sans-serif;letter-spacing:.12em;text-transform:uppercase;padding:8px 12px;border-radius:999px}
+.tag.ok{background:var(--mint);color:var(--pine-2)} .tag.no{background:#fae8e4;color:#9e2a22}
+h1{margin:14px 0 10px;font:400 clamp(26px,6vw,34px)/1.12 "Rubik Bubbles","Nunito",sans-serif;color:var(--pine-2);text-wrap:balance;padding-right:70px}
+.lead{margin:0 0 20px;color:var(--muted)}
+ol,ul{margin:0;padding:0;list-style:none;display:grid;gap:12px}
+ol{counter-reset:s} ol li{display:grid;grid-template-columns:32px minmax(0,1fr);gap:12px;counter-increment:s}
+ol li::before{content:counter(s);display:grid;place-items:center;width:32px;height:32px;border-radius:50%;background:var(--red);color:#fff;font-weight:900}
+ol b{display:block;font-weight:900}
+ol span{color:var(--muted);font-size:15.5px}
+ul li{position:relative;padding-left:22px} ul li::before{content:"✕";position:absolute;left:0;color:var(--red);font-weight:900}
+.help{margin-top:22px;padding:16px 18px;border-radius:16px;background:#fff;border:1px solid var(--line);font-size:15.5px}
+.help a{color:var(--pine-2);font-weight:800;text-decoration:none;border-bottom:1px solid rgba(31,92,64,.35);overflow-wrap:anywhere}
+.btn{display:flex;align-items:center;justify-content:center;min-height:54px;margin-top:20px;border-radius:999px;background:var(--gold);color:#3a2606;font-weight:900;font-size:17px;text-decoration:none;box-shadow:0 2px 0 var(--gold-d)}
+.btn.ghost{background:transparent;border:1.5px solid var(--line);box-shadow:none;color:var(--pine-2)}
+a:focus-visible{outline:3px solid #3b7ea6;outline-offset:3px;border-radius:8px}
+.foot{margin-top:18px;font-size:13.5px;color:rgba(255,248,234,.6);text-align:center}
 </style>
 <!-- Meta Pixel Code -->
 <script>
@@ -60,21 +65,23 @@ fbq('track', 'PageView');
 <noscript><img height="1" width="1" style="display:none" alt=""
 src="https://www.facebook.com/tr?id=1581873103694773&ev=PageView&noscript=1"></noscript>
 <main class="wrap">
-  <a class="brand" href="/">Моя система</a>
+  <a class="brand" href="/snizhko/"><i>★</i>Пошта Сніжка</a>
   <div class="card">
-    <h1>Оплата не пройшла</h1>
-    <p>Таке трапляється — найчастіше з однієї з цих причин:</p>
+    <img class="elf" src="/snizhko/img/elf-think.webp" alt="" width="388" height="600">
+    <span class="tag no">Оплата не пройшла</span>
+    <h1>Ой, лист Сніжка ще не відправлено</h1>
+    <p class="lead">Таке трапляється. Найчастіше з однієї з цих причин:</p>
     <ul>
       <li>банк відхилив платіж або не вистачило коштів на картці;</li>
       <li>оплату не підтвердили в застосунку банку чи кодом з SMS;</li>
       <li>сторінка оплати закрилася до завершення.</li>
     </ul>
-    <a class="btn" href="/#buy">Спробувати ще раз</a>
-    <div class="help">Якщо гроші все ж списалися або щось не виходить — напишіть нам у Telegram
+    <a class="btn" href="/snizhko/#nabir">Спробувати ще раз</a>
+    <div class="help">Якщо гроші все ж списалися або щось не виходить, напишіть нам у Telegram
       <a href="https://t.me/moyasystema" target="_blank" rel="noopener">@moyasystema</a> або на
       <a href="mailto:info@moyasystema.pp.ua">info@moyasystema.pp.ua</a>, розберемося.</div>
   </div>
-  <p class="foot">© 2026 · Моя система</p>
+  <p class="foot">© 2026 · Пошта Сніжка</p>
 </main>
 </body>
 </html>
