@@ -588,6 +588,14 @@ footer small{font-size:13.5px;line-height:1.5;max-width:70ch}
 .f-contacts .ico{width:17px;height:17px;opacity:.8}
 .f-seller{font-size:13.5px;line-height:1.6;color:rgba(255,248,234,.55)}
 
+/* hero title: 2 lines on phones — «24 листи від / ельфа Сніжка» (Vlad 19.11) */
+.h1 .hl{font-style:normal}
+@media (max-width:599px){
+  .h1{font-size:min(52px,calc((100vw - 32px) / 7.75))}
+  .h1 .hl{display:block;white-space:nowrap}
+  .h1 span{display:inline}
+}
+
 [hidden]{display:none!important}
 
 /* mobile compaction */
@@ -666,7 +674,7 @@ footer small{font-size:13.5px;line-height:1.5;max-width:70ch}
   <div class="wrap">
     <div class="hero-copy">
       <p class="kicker">Адвент-календар для дітей <span style="white-space:nowrap">1–6 років</span></p>
-      <h1 class="h1" id="h1">24 листи від ельфа <span>Сніжка</span></h1>
+      <h1 class="h1" id="h1"><i class="hl">24 листи від</i> <i class="hl">ельфа <span>Сніжка</span></i></h1>
       <p class="lead">Щоранку дитина біжить до скриньки — а там <b>лист від ельфа</b>. 15 хвилин разом, і грудень стає <b>місяцем справжніх див</b>: гра, дослід або добра справа на кожен день.</p>
       <div class="agepick">
         <div class="agepick-head"><span class="agepick-ic" aria-hidden="true"><svg class="ico"><use href="#i-star"/></svg></span><div><p class="agepick-l">Скільки років дитині?</p><p class="agepick-s">Завдання підібрані під вік</p></div></div>
