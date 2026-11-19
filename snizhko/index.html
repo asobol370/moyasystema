@@ -710,7 +710,7 @@ footer small{font-size:13.5px;line-height:1.5;max-width:70ch}
           <div class="price"><span class="now">299 <small>₴</small></span><s class="old">599 ₴</s><span class="badge">−50%</span></div>
         </div>
         <p class="perday">Це ~12 ₴ за день місяця пригод</p>
-        <a class="btn btn-wide" href="#nabir">Хочу набір <svg class="ico"><use href="#i-arrow"/></svg></a>
+        <a class="btn btn-wide" href="https://secure.wayforpay.com/button/b7f0acc61218a" data-pay data-age-pay data-value="299" data-name="Листи від Сніжка, 3–4 роки">Хочу набір <svg class="ico"><use href="#i-arrow"/></svg></a>
         <p class="bundle-line">Або <a href="#komplekt">всі 3 віки за 449 ₴</a> замість 897 ₴</p>
         <p class="guarantee"><svg class="ico"><use href="#i-shield"/></svg>Не підійде — напишіть протягом 24 годин, повернемо кошти.</p>
         <p class="offer-note"><svg class="ico"><use href="#i-mail"/></svg>Файли приходять на email одразу після оплати</p>
@@ -1107,7 +1107,7 @@ footer small{font-size:13.5px;line-height:1.5;max-width:70ch}
           <p class="offer-name"><b>Набір <span data-age-text="short">3–4</span> <span data-age-text="word">роки</span></b>або комплект на всі віки</p>
           <div class="price"><span class="now">299 <small>₴</small></span><s class="old">599 ₴</s><span class="badge">−50%</span></div>
         </div>
-        <a class="btn btn-wide" href="#nabir">Хочу набір <svg class="ico"><use href="#i-arrow"/></svg></a>
+        <a class="btn btn-wide" href="https://secure.wayforpay.com/button/b7f0acc61218a" data-pay data-age-pay data-value="299" data-name="Листи від Сніжка, 3–4 роки">Хочу набір <svg class="ico"><use href="#i-arrow"/></svg></a>
         <p class="bundle-line">Усі 3 віки — <a href="#komplekt">449 ₴</a> замість 897 ₴</p>
         <p class="guarantee"><svg class="ico"><use href="#i-shield"/></svg>Не підійде — напишіть протягом 24 годин, повернемо кошти.</p>
         <p class="offer-note"><svg class="ico"><use href="#i-mail"/></svg>Разовий платіж · PDF на email одразу</p>
@@ -1145,7 +1145,7 @@ const DAYS={"12": [[1, "Долонька і скринька-поштарик", 
 const WEEK=n=>n<=6?'Знайомство':n<=12?'Майстерня':n<=18?'Добрі справи':n<=23?'Готуємося до свята':'Прощання';
 // envelope stripe colors from the print file: 1–6 red, 7–12 green, 13–18 gold, 19–24 blue
 const WKC=n=>n<=6?'#c8372d':n<=12?'#2f7a52':n<=18?'#d9a441':'#3b7ea6';
-const AGES={'12':{short:'1–2',word:'роки',pages:75},'34':{short:'3–4',word:'роки',pages:75},'56':{short:'5–6',word:'років',pages:90}};
+const AGES={'12':{short:'1–2',word:'роки',pages:75,wfp:'https://secure.wayforpay.com/button/b0fe3c74d5f6a'},'34':{short:'3–4',word:'роки',pages:75,wfp:'https://secure.wayforpay.com/button/b7f0acc61218a'},'56':{short:'5–6',word:'років',pages:90,wfp:'https://secure.wayforpay.com/button/b1c99c5e81994'}};
 let AGE='34';
 const ageHooks=[];
 
@@ -1157,6 +1157,8 @@ function setAge(a,opts){
   document.querySelectorAll('[data-age-card]').forEach(c=>c.classList.toggle('on',c.dataset.ageCard===a));
   document.querySelectorAll('[data-cover]').forEach(c=>c.classList.toggle('on',c.dataset.cover===a));
   document.querySelectorAll('[data-age-text]').forEach(e=>{e.textContent=AGES[a][e.dataset.ageText]});
+  /* «Хочу набір» у шапці й фіналі веде одразу на оплату обраного віку */
+  document.querySelectorAll('[data-age-pay]').forEach(e=>{e.href=AGES[a].wfp; e.dataset.name='Листи від Сніжка, '+AGES[a].short+' '+AGES[a].word;});
   ageHooks.forEach(f=>f(a));
   try{localStorage.setItem('snizhko-age',a)}catch(e){}
 }
