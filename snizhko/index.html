@@ -964,7 +964,7 @@ footer small{font-size:13.5px;line-height:1.5;max-width:70ch}
         <div class="price"><span class="now">449 <small>₴</small></span><s class="old">897 ₴</s><span class="badge">−50%</span></div>
         <p class="save">Економія 448 ₴</p>
         <p class="perday">≈150 ₴ за набір замість 299 ₴</p>
-        <a class="btn btn-wide" href="https://secure.wayforpay.com/button/b38c26f5f1065" data-pay data-value="449" data-name="Листи від Сніжка, комплект 1–6 років">Хочу комплект <svg class="ico"><use href="#i-arrow"/></svg></a>
+        <a class="btn btn-wide" href="#komplekt" data-soon data-value="449" data-name="Листи від Сніжка, комплект 1–6 років">Хочу комплект <svg class="ico"><use href="#i-arrow"/></svg></a>
         <p class="guarantee"><svg class="ico"><use href="#i-shield"/></svg>Не підійде — напишіть протягом 24 годин, повернемо кошти.</p>
         <p class="terms">Разовий платіж · 6 файлів PDF на email<br>Для особистого сімейного користування</p>
       </div>
@@ -1311,6 +1311,12 @@ document.querySelectorAll('[data-pay]').forEach(a=>a.addEventListener('click',()
   try{localStorage.setItem('snizhko-checkout',JSON.stringify({value:v,name:n,ts:Date.now()}))}catch(e){}  /* для Purchase на /dyakuyu/ */
   if(window.clarity) clarity('event','checkout_click');
   if(window.fbq) fbq('track','InitiateCheckout',{value:v,currency:'UAH',content_name:n,content_type:'product'});
+}));
+/* комплект: кнопка WFP на 449 ₴ ще не підключена (19.11) */
+document.querySelectorAll('[data-soon]').forEach(a=>a.addEventListener('click',e=>{
+  e.preventDefault(); const t=document.getElementById('toast'); if(!t) return;
+  t.textContent='Оплата комплекту відкриється найближчим часом. Поки можна обрати набір під вік вище.'; t.classList.add('on');
+  clearTimeout(window.__tt); window.__tt=setTimeout(()=>t.classList.remove('on'),4500);
 }));
 </script>
 </body>
